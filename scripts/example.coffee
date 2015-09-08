@@ -12,7 +12,7 @@
 module.exports = (robot) ->
 
   robot.hear /hola/i, (res) ->
-    res.send "Me gusta que me saluden"
+    res.send "Me gusta que me saluden, pero no te pases"
 
   robot.respond /open the (.*) doors/i, (res) ->
     doorType = res.match[1]
