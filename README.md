@@ -9,3 +9,5 @@ to talk about your own instance, how to use and deploy, what functionality he
 has, etc!
 
 HUBOT_SLACK_TOKEN=xxxxx ./bin/hubot -a slack
+
+test
