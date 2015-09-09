@@ -7,6 +7,10 @@
 #   Uncomment the ones you want to try and experiment with.
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
+giphy =
+  api_key: 'dc6zaTOxFJmzC'
+  base_url: 'http://api.giphy.com/v1'
+
 
 {exec} = require 'child_process'
 module.exports = (robot) ->
@@ -47,6 +51,33 @@ module.exports = (robot) ->
       msg.send error if error
       msg.send stdout if stdout
       msg.send stderr if stderr
+
+  robot.respond /(dame )(gif|giphy)? (.*)/i, (msg) ->
+    giphyMe msg, msg.match[3], (url) ->
+      msg.send url
+
+  giphyMe = (msg, query, cb) ->
+    endpoint = '/gifs/search'
+    url = "#{giphy.base_url}#{endpoint}"
+
+    msg.http(url)
+      .query
+        q: query
+        api_key: giphy.api_key
+      .get() (err, res, body) ->
+        response = undefined
+        try
+          response = JSON.parse(body)
+          images = response.data
+          if images.length > 0
+            image = msg.random images
+            cb image.images.original.url
+
+        catch e
+          response = undefined
+          cb 'Error'
+
+        return if response is undefined
   # robot.hear /I like pie/i, (res) ->
   #   res.emote "makes a freshly baked pie"
   #
