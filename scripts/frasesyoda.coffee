@@ -1,6 +1,9 @@
-#yoda frases
+# Description:
+#   Frases de yoda
 #
-#
+# Commands:
+#   yoda frase - Te devuelve una frase de yoda
+
 module.exports = (robot) ->
   robot.hear /^yoda frase$/i, (msg) ->
     frases = ["El miedo es el camino hacia el Lado Oscuro, el miedo lleva a la ira, la ira lleva al odio, el odio lleva al sufrimiento. Veo mucho miedo en ti.",

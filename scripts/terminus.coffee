@@ -1,11 +1,8 @@
 # Description:
-#   Example scripts for you to examine and try out.
+#   controlar los comandos de terminus y de drus
 #
-# Notes:
-#   They are commented out by default, because most of them are pretty silly and
-#   wouldn't be useful and amusing enough for day to day huboting.
-#   Uncomment the ones you want to try and experiment with.
-#
+# Commands:
+#   cc all <nombre_sitio> <entorno> - borra el cache de un sitio de panteon y su entorno
 
 
 {exec} = require 'child_process'

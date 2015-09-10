@@ -1,12 +1,8 @@
 # Description:
-#   Example scripts for you to examine and try out.
+#   Gif animados
 #
-# Notes:
-#   They are commented out by default, because most of them are pretty silly and
-#   wouldn't be useful and amusing enough for day to day huboting.
-#   Uncomment the ones you want to try and experiment with.
-#
-#   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
+# Commands:
+#   gif <nombre> - Te devuelve un gif
 
 
 giphy =
@@ -18,7 +14,7 @@ module.exports = (robot) ->
   robot.hear /hola/i, (res) ->
     res.send "Me gusta que me saluden, pero no te pases"
 
-  robot.respond /(gif )? (.*)/i, (msg) ->
+  robot.respond /(dame )(gif|giphy)? (.*)/i, (msg) ->
     giphyMe msg, msg.match[3], (url) ->
       msg.send url
 
