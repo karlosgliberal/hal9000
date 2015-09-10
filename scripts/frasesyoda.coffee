@@ -1,6 +1,9 @@
+#yoda frases
+#
+#
 module.exports = (robot) ->
   robot.hear /^yoda frase$/i, (msg) ->
-    quotes = ["El miedo es el camino hacia el Lado Oscuro, el miedo lleva a la ira, la ira lleva al odio, el odio lleva al sufrimiento. Veo mucho miedo en ti.",
+    frases = ["El miedo es el camino hacia el Lado Oscuro, el miedo lleva a la ira, la ira lleva al odio, el odio lleva al sufrimiento. Veo mucho miedo en ti.",
     "Vive el momento, no pienses; siente, utiliza tu instinto, siente La Fuerza",
     "Caminos a la victoria hay, distintos que aplastar a un enemigo",
     "El tamaño no importa. Mírame a mí. Me juzgas por mi tamaño, ¿eh? Y no deberías, porque mi aliada es la fuerza, y una poderosa aliada es La vida la crea, la hace crecer, nos penetra y nos rodea ¡Seres luminosos somos! ¡No esta cruda materia!",
@@ -9,6 +12,5 @@ module.exports = (robot) ->
     "La guerra no lo hace a uno más grandioso",
     "Siempre ha de haber dos, ni más ni menos. Un maestro, y un aprendiz.",
     "No lo intentes. Hazlo, o no lo hagas, pero no lo intentes."]
-
-    quote = msg.random quotes
-    msg.send "\"#{quote}\" - Yoda
+    frase = msg.random frases
+    msg.send "\"#{frase}\" - Yoda"
