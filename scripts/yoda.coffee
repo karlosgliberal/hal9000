@@ -1,3 +1,8 @@
+# Description:
+#   imagens de yoda
+#
+# Commands:
+#   yoda pic - Te devuelve una imagen de yoda
 module.exports = (robot) ->
   robot.hear /^yoda pic$/i, (msg) ->
     images = ["http://upload.wikimedia.org/wikipedia/pt/thumb/4/45/Yoda.jpg/200px-Yoda.jpg",
