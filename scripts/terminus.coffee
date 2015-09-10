@@ -28,6 +28,21 @@ module.exports = (robot) ->
       msg.send stdout if stdout
       msg.send stderr if stderr
 
+#Borrando caches
+  robot.respond /site deploy2test (.+)\s(.*)/i, (msg) ->
+    hostname = msg.match[1]
+    nota = msg.match[2]
+    msg.send "Borrando el cache de #{hostname}..."
+
+    command = "terminus --site=#{hostname} --env=dev ---from=test --cc --note=#{nota}"
+    msg.send "Este es el comando #{command}."
+
+    exec command, (error, stdout, stderr) ->
+      msg.send error if error
+      msg.send stdout if stdout
+      msg.send stderr if stderr
+
+
 
   # robot.hear /I like pie/i, (res) ->
   #   res.emote "makes a freshly baked pie"
