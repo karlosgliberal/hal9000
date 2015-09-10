@@ -34,7 +34,7 @@ module.exports = (robot) ->
     nota = msg.match[2]
     msg.send "Borrando el cache de #{hostname}..."
 
-    command = "terminus site deploy --site=#{hostname} --env=dev ---from=test --cc --note='Esto es cosa de hal-ito'"
+    command = "terminus site deploy --site=#{hostname} --env=dev --from=test --cc --note='Esto es cosa de hal-ito'"
     msg.send "Este es el comando #{command}."
 
     exec command, (error, stdout, stderr) ->
