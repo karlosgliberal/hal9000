@@ -6,21 +6,27 @@
 #   wouldn't be useful and amusing enough for day to day huboting.
 #   Uncomment the ones you want to try and experiment with.
 #
-#   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
-giphy =
-  api_key: 'dc6zaTOxFJmzC'
-  base_url: 'http://api.giphy.com/v1'
 
 {exec} = require 'child_process'
 module.exports = (robot) ->
 
-  robot.respond /open the (.*) doors/i, (res) ->
-    doorType = res.match[1]
-    if doorType is "pod bay"
-      res.reply "I'm afraid I can't let you do that."
-    else
-      res.reply "Opening #{doorType} doors"
+#Borrando caches
+  robot.respond /cc all (.+)\s(.*)/i, (msg) ->
+    hostname = msg.match[1]
+    env = msg.match[2]
+    msg.send "Borrando el cache de #{hostname}..."
+
+    if env.length = 0
+      command = "terminus --site=#{hostname} drush cc all"
+
+    command = "terminus --site=#{hostname} drush cc all --env=#{env}"
+    msg.send "Este es el comando #{command}."
+
+    exec command, (error, stdout, stderr) ->
+      msg.send error if error
+      msg.send stdout if stdout
+      msg.send stderr if stderr
 
 
   # robot.hear /I like pie/i, (res) ->
