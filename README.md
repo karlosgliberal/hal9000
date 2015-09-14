@@ -10,4 +10,3 @@ has, etc!
 
 HUBOT_SLACK_TOKEN=xxxxx ./bin/hubot -a slack
 
-test4446887

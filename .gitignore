@@ -2,6 +2,7 @@
 logs
 *.log
 comando.sh
+scripts/terminusLogin.coffee
 
 # Runtime data
 pids
