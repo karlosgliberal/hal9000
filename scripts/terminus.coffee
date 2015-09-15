@@ -22,14 +22,14 @@ module.exports = (robot) ->
 
     exec command, (error, stdout, stderr) ->
       msg.send error if error
-      msg.send stdout if stdout
+      msg.send "https://media.giphy.com/media/8WIJHInfWP6/giphy.gif" if stdout
       msg.send stderr if stderr
 
 #Borrando caches
   robot.respond /deploy2test (.+)\s(.*)/i, (msg) ->
     hostname = msg.match[1]
     nota = msg.match[2]
-    msg.send "Borrando el cache de #{hostname}..."
+    msg.send "Deploy a test en #{hostname}..."
 
     command = "terminus site deploy --site=#{hostname} --env=test --cc --note='Esto es cosa de hal-ito'"
     msg.send "Este es el comando #{command}."
@@ -43,7 +43,7 @@ module.exports = (robot) ->
   robot.respond /deploy2live (.+)\s(.*)/i, (msg) ->
     hostname = msg.match[1]
     nota = msg.match[2]
-    msg.send "Borrando el cache de #{hostname}..."
+    msg.send "Deploy a test en #{hostname}..."
 
     command = "terminus site deploy --site=#{hostname} --env=live --cc --note='Esto es cosa de hal-ito'"
     msg.send "Este es el comando #{command}."
