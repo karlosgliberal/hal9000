@@ -9,6 +9,10 @@
 module.exports = (robot) ->
 
 #Borrando caches
+
+
+  images = ["http://i.giphy.com/8ZWjjTUjFkGGs.gif", "http://i.giphy.com/R459x856IfF6w.gif", "http://i.giphy.com/5xtDarwCD1Cer0O0Gac.gif", "http://i.giphy.com/VUYTIed7MnjoY.gif", "http://i.giphy.com/NiyxeWm81N0cg.gif", "http://i.giphy.com/10P2gIevgojPmU.gif"];
+
   robot.respond /cc all (.+)\s(.*)/i, (msg) ->
     hostname = msg.match[1]
     env = msg.match[2]
@@ -22,7 +26,7 @@ module.exports = (robot) ->
 
     exec command, (error, stdout, stderr) ->
       msg.send error if error
-      msg.send "https://media.giphy.com/media/8WIJHInfWP6/giphy.gif" if stdout
+      msg.send msg.random images if stdout
       msg.send stderr if stderr
 
 #Borrando caches
@@ -36,7 +40,7 @@ module.exports = (robot) ->
 
     exec command, (error, stdout, stderr) ->
       msg.send error if error
-      msg.send "https://media.giphy.com/media/8WIJHInfWP6/giphy.gif" if stdout
+      msg.send msg.random images if stdout
       msg.send stderr if stderr
 
 #Borrando caches
@@ -50,7 +54,7 @@ module.exports = (robot) ->
 
     exec command, (error, stdout, stderr) ->
       msg.send error if error
-      msg.send "https://media.giphy.com/media/8WIJHInfWP6/giphy.gif" if stdout
+      msg.send msg.random images if stdout
       msg.send stderr if stderr
 
 
